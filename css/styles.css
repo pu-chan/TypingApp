@@ -1,0 +1,25 @@
+body {
+    padding: 150px 0 0 0;
+    margin: 0;
+    font-family: Verdana, sans-serif;;
+    text-align: center;
+    background-color: yellow;
+}
+
+.container {
+    width: 100%;
+    padding: 50px;
+    background-color: #fff;
+}
+
+#target {
+    font-size: 80px;
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+.info {
+    font-size: 20px;
+    color: #808080;
+    margin: 0px;
+}

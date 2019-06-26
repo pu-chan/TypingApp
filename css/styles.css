@@ -23,7 +23,7 @@ body {
     margin: 0;
     font-family: Verdana, sans-serif;;
     text-align: center;
-    background-image: url('../img/bg09.jpg');
+    background-image: url('../img/bg07.jpg');
     background-repeat: no-repeat;
 }
 
@@ -44,4 +44,22 @@ body {
     font-size: 20px;
     color: #808080;
     margin: 0px;
+}
+
+/* main.js */
+.smaller {
+    font-size: 60px;
+}
+
+.lovely {
+    color: #ff80bf;
+}
+
+.star {
+    font-size:65px;
+    color: #ffd700;
+}
+
+.correct {
+    opacity: 0.3;
 }

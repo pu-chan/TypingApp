@@ -5,17 +5,18 @@ nav {
     margin: 0;
 }
 
-ul {
+nav ul {
     list-style: none;
     display: flex;
     align-items: center;
 }
 
 #icon {
+    cursor: pointer;
     margin-left: 0;
 }
 
-li {
+nav li {
     margin-left: 100px;
 }
 
@@ -30,20 +31,25 @@ body {
 .container {
     width: 100%;
     margin-top: 70px;
-    padding: 50px;
+    padding-top: 50px;
     background-color: #fff;
 }
 
 #target {
     font-size: 80px;
-    margin-top: 0;
-    margin-bottom: 40px;
+    margin: 0;
 }
 
 .info {
     font-size: 20px;
     color: #808080;
-    margin: 0px;
+    padding: 10px;
+    display: flex;
+    justify-content: center; 
+}
+
+.info_item {
+    margin-left: 100px;
 }
 
 /* main.js */

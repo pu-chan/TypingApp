@@ -36,18 +36,29 @@
       }
 
     // 定数, 変数
+    const mask = document.getElementById('mask');
+    const modal = document.getElementById('modal');
+    const modalMessage = document.getElementById('modalMessage');
+    const close = document.getElementById('close');
     const target = document.getElementById('target');
     const order = document.getElementById('order');
     const timer = document.getElementById('timer');
     
     let i = 0;
     let wordContent = [];
-    const timeLimit = 100 * 1000;
+    const timeLimit = 10 * 1000;
     let startTime;
     let isPlaying = false;
+    const messages = [
+        "Let's take a coffee break ! ",
+        "Let's try again with a cup of coffee ! ",
+        "Let's practice over a cup of coffee ! ",
+    ];
+    let ran = Math.floor(Math.random() * messages.length);
 
     order.textContent = '22 ';
     timer.textContent = '100.00';
+    modalMessage.textContent = messages[ran]
 
 
     // ゲームスタート前
@@ -73,6 +84,17 @@
         });
     }
 
+    // モーダル画面
+    function callMordal() {
+        modal.classList.remove('hidden');
+        mask.classList.remove('hidden');
+    };
+
+    close.addEventListener('mouseover', () => {
+        modal.classList.add('hidden');
+        mask.classList.add('hidden');
+    });
+
     // タイマー
     function updateTime() {
        const timeLeft = startTime + timeLimit - Date.now(); 
@@ -86,7 +108,7 @@
            isPlaying = false;
            clearTimeout(timeoutId);
            setTimeout(()=> {
-               alert('Finish★');
+               callMordal();
             }, 100);
             
            timer.textContent = '0.00';

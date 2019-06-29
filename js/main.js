@@ -165,6 +165,20 @@
     });
 
     // スタイル
+    const bgimgs = [
+        'img/bg01.jpg',
+        'img/bg02.jpg',
+        'img/bg03.jpg',
+        'img/bg04.jpg',
+        'img/bg05.jpg',
+        'img/bg06.jpg',
+        'img/bg07.jpg',
+    ];
+
+    let bgRan = Math.floor(Math.random() * bgimgs.length);
+    const body = document.querySelector('body');
+    body.style.backgroundImage = 'url(' + `${bgimgs[bgRan]}` + ')';
+
     const img = document.querySelector('img');
     img.src = 'img/icon01.png';
 

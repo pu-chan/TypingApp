@@ -37,16 +37,20 @@
 
     // 定数, 変数
     const mask = document.getElementById('mask');
+    const mask_a = document.getElementById('mask_a');
     const modal = document.getElementById('modal');
+    const modal_a = document.getElementById('modal_a');
     const modalMessage = document.getElementById('modalMessage');
+    const modal_aMessage = document.getElementById('modal_aMessage');
     const close = document.getElementById('close');
     const target = document.getElementById('target');
     const order = document.getElementById('order');
     const timer = document.getElementById('timer');
     
     let i = 0;
+    let j;
     let wordContent = [];
-    const timeLimit = 10 * 1000;
+    const timeLimit = 100 * 1000;
     let startTime;
     let isPlaying = false;
     const messages = [
@@ -56,10 +60,11 @@
     ];
     let ran = Math.floor(Math.random() * messages.length);
 
-    order.textContent = '22 ';
     timer.textContent = '100.00';
-    modalMessage.textContent = messages[ran]
-
+    modalMessage.textContent = messages[ran];
+    modal_aMessage.textContent = 'Congratulations!';
+    j = words.length;
+    order.textContent = j;
 
     // ゲームスタート前
     target.textContent = 'click to start';
@@ -82,18 +87,27 @@
    
             return span;
         });
+
+            order.textContent = j;
     }
 
     // モーダル画面
     function callMordal() {
         modal.classList.remove('hidden');
         mask.classList.remove('hidden');
-    };
+        close.addEventListener('mouseover', () => {
+            modal.classList.add('hidden');
+            mask.classList.add('hidden');
+        });
+    }
 
-    close.addEventListener('mouseover', () => {
-        modal.classList.add('hidden');
-        mask.classList.add('hidden');
-    });
+
+    function callMordal_a() {
+        mask_a.classList.remove('hidden');
+        setTimeout(()=> {
+            modal_a.classList.remove('hidden');
+        }, 300);
+    }
 
     // タイマー
     function updateTime() {
@@ -136,16 +150,16 @@
             if(i < words.length - 1) {
                 target.textContent = '';
                 i++;
+                j--;
                 createWord();
             }else {
                 isPlaying = false;
-                clearTimeout(timeoutId);
+                // clearTimeout(timeoutId);
                 setTimeout(()=> {
-                alert('Awesome');
+                    callMordal_a();
                 }, 100);
-            
+
                 timer.textContent = '0.00';
-                target.textContent = 'click to replay';
             }
         }
     });
@@ -189,4 +203,5 @@
     img.addEventListener('mouseout', () => {
         img.src = 'img/icon01.png';
     });
+
 }

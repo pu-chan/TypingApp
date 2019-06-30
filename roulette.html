@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>タイピングアプリ</title>
+        <style type="text/css">
+            nav {
+                padding: 0;
+                margin: 0;
+                color: #fff;
+            }
+
+            nav ul {
+                list-style: none;
+                display: flex;
+                align-items: center;
+            }
+
+            #icon {
+                cursor: pointer;
+                margin-left: 0;
+            }
+
+            nav li {
+                margin-left: 100px;
+            }
+
+            body {
+                margin: 0;
+                font-family: Verdana, sans-serif;;
+                text-align: center;
+                background-repeat: no-repeat;
+            }
+
+            .roulette {
+                width: 350px;
+                height: 450px;
+                background-color: #fff;
+                margin: 0 auto 50px;
+                padding-top: 40px;
+                border-radius: 50px;
+            }
+
+            #outline {
+                width: 250px;
+                height: 350px;
+                background: linear-gradient(180deg, #6495ed, #ee82ee);
+                margin: 0px auto;
+            }
+
+            #outlineImg {
+                padding-top: 100px;
+            }
+
+            .outlineDeco {
+                width: 280px;
+                height: 350px;
+                background-color: #a9a9a9;
+                margin: 0px auto;
+                padding: 15px 0;
+            }
+
+            #btn {
+                font-size: 30px;
+                color: #ffd700;
+                width: 45px;
+                height: 45px;
+                background-color: #00704a;
+                border-radius: 50%;
+                margin: 13px auto;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <nav>
+        <ul>
+            <li id='icon'><img></li>
+            <li>cafe</li>
+            <li>Coffee & Goods</li>
+            <li>Company</li>
+        </ul>
+    </nav>
+    <body>
+        <div class='roulette'>
+            <div class='outlineDeco'>
+                <div id='outline'>
+                    <img id='outlineImg'>
+                </div>
+            </div>
+            <div id='btn'>★</div>
+        </div>
+    <script>
+        const body = document.querySelector('body');
+        body.style.backgroundImage = 'url(img/roulette01.jpg)';
+        body.style.backgroundSize = 'cover';
+        const img = document.querySelector('img');
+        img.src = 'img/icon01.png';
+
+        img.addEventListener('mouseover', () => {
+            img.src = 'img/icon02.png';
+        });
+
+        img.addEventListener('mouseout', () => {
+            img.src = 'img/icon01.png';
+        });
+        const outlineImg = document.getElementById('outlineImg');
+        outlineImg.src = 'img/cookie.png';
+    </script>
+    </body>
+</html>

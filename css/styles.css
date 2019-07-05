@@ -27,9 +27,9 @@ body {
     background-repeat: no-repeat;
 }
 
-.container {
+#container {
     width: 100%;
-    margin-top: 70px;
+    margin-top: 90px;
     padding-top: 50px;
     background-color: #fff;
 }

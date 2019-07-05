@@ -1,6 +1,6 @@
 'use strict';
 {
-    const words = [
+    let words = [
         'STARBUCKS COFFEE', 
         'Drip Coffee', 
         'Starbucks Latte', 
@@ -36,6 +36,7 @@
       }
 
     // 定数, 変数
+    const container = document.getElementById('container');
     const mask = document.getElementById('mask');
     const mask_a = document.getElementById('mask_a');
     const modal = document.getElementById('modal');
@@ -72,23 +73,23 @@
 
     // 単語の表示
     function createWord() {
-            wordContent = words[i].split('').map(function(value) {
-            
-            const span = document.createElement('span');
-            span.textContent = value;
-            if(words[i].length > 20) {
-                span.classList.add('smaller');
-            }
-            if(words[i] === 'STRAWBERRYVERYMUCHFRAPPUCCINO'||
-               words[i] === 'SAKURA Blossom Cream Latte') {
-                span.classList.add('lovely');
-            }
-            target.appendChild(span);
-   
-            return span;
-        });
+        wordContent = words[i].split('').map(function(value) {
+        
+        const span = document.createElement('span');
+        span.textContent = value;
+        if(words[i].length > 20) {
+            span.classList.add('smaller');
+        }
+        if(words[i] === 'STRAWBERRYVERYMUCHFRAPPUCCINO'||
+            words[i] === 'SAKURA Blossom Cream Latte') {
+            span.classList.add('lovely');
+        }
+        target.appendChild(span);
 
-            order.textContent = j;
+        return span;
+    });
+
+        order.textContent = j;
     }
 
     // モーダル画面
@@ -100,7 +101,6 @@
             mask.classList.add('hidden');
         });
     }
-
 
     function callMordal_a() {
         mask_a.classList.remove('hidden');
@@ -124,9 +124,13 @@
            setTimeout(()=> {
                callMordal();
             }, 100);
-            
+           
            timer.textContent = '0.00';
            target.textContent = 'click to replay';
+       }
+
+       if(target.textContent === 'やったね！') {
+            clearTimeout(timeoutId);
        }
     }
 
@@ -154,22 +158,23 @@
                 createWord();
             }else {
                 isPlaying = false;
-                // clearTimeout(timeoutId);
                 setTimeout(()=> {
                     callMordal_a();
                 }, 100);
-
-                timer.textContent = '0.00';
+                target.textContent = 'やったね！';
+                target.style.color = '#fff';
             }
         }
     });
 
     // 画面をクリックしてスタート
-    document.addEventListener('click', () => {
+    container.addEventListener('click', () => {
         if(isPlaying) {
             return;
         }
         isPlaying = true;
+        i = 0;
+        j = words.length;
 
         target.textContent = '';
         startTime = Date.now();

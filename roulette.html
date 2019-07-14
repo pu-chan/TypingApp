@@ -218,6 +218,8 @@
         const stopPos = -1015;
         // ルーレット移動の時間（ミリ秒）
         const moveTime = 5000;
+        // 画像移動がはじまっているか
+        let isMoved;
 
         $(document).ready(function() {
             // 枠内にルーレット画像を生成
@@ -250,14 +252,19 @@
         }
 
         /* ルーレットスタート */
+        isMoved = false;
         function rouletteStart(){
             // ルーレット画像移動
+            if(isMoved) {
+                return;
+            }
             rouletteMove($("#outlineDeco .outline"));
         }
 
         /* ルーレット画像移動 */
         function rouletteMove(obj){
             if (obj.css("margin-top") != startPos ){
+                isMoved = true;
                 // ルーレットが動いた後であれば、ルーレット画像を再作成
                 rouletteCreate( obj );
             }
@@ -287,6 +294,10 @@
                     setTimeout(() => {
                         download.classList.add('down');
                     }, 600);
+                    isMoved = false;
+                    setTimeout(() => {
+                        location.href = 'index.html';
+                    }, 5000);
             });
         }
 
